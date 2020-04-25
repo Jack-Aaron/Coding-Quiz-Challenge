@@ -1,3 +1,7 @@
+html {
+    font-size: calc(0.5em + 2vw)
+}
+
 body {
     height: 100%;
     width: 100%;
@@ -9,12 +13,12 @@ body {
 .container {
     display: grid;
     grid-template-columns: auto;
-    padding-bottom: 10vh;
+    padding-bottom: 4rem;
 }
 
 #top {
-    padding-top: 4vh;
-    font-size: 2vw;
+    padding-top: 2em;
+    font-size: inherit;
     color: rgb(136, 23, 152);
 }
 
@@ -26,22 +30,26 @@ body {
     text-align: end;
 }
 
-main {
-    padding-top: 8vh;
-}
-
 h1 {
-    font-size: 5vw;
+    font-size: inherit;
     text-align: center;
     color: rgb(19,161,14);
-    padding-top: 4vh;
-    letter-spacing: 0.5vw;
+    padding-top: 1em;
+    letter-spacing: 0.5em;
 }
 
 #instructions {
     background-color: black;
-    margin-top: 4vh;
+    margin-top: 2em;
     border: 5px solid rgb(19,161,14);
-    border-radius: 4vw;
+    border-radius: 4px;
     border-style: ridge;
+}
+
+p {
+    color: #4361ee;
+    padding: 1em;
+    text-align: center;
+    line-height: 2em;
+    letter-spacing: 0.25em;
 }
