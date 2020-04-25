@@ -39,7 +39,7 @@ h1 {
     text-align: center;
     color: rgb(19,161,14);
     padding-top: 1em;
-    letter-spacing: 0.5em;
+    letter-spacing: 0.4em;
 }
 
 #instructions {
@@ -69,7 +69,7 @@ a:hover {
 
 a:active {
     color:rgb(19,161,14);
-}
+}  
 
 button {
     background: rgb(0,55,218);
