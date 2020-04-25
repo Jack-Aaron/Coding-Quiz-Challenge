@@ -10,14 +10,14 @@ body {
     overflow: hidden;
 }
 
-main {
-    padding-top: 2em;
-}
-
 .container {
     display: grid;
     grid-template-columns: auto;
     padding-bottom: 4rem;
+}
+
+main {
+    padding-top: 2em;
 }
 
 #top {
