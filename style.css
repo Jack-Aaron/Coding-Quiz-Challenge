@@ -1,5 +1,5 @@
 html {
-    font-size: calc(0.5em + 2vw)
+    font-size: calc(0.5em + 0.75vw)
 }
 
 body {
@@ -31,7 +31,7 @@ body {
 }
 
 h1 {
-    font-size: inherit;
+    font-size: 2.2em;
     text-align: center;
     color: rgb(19,161,14);
     padding-top: 1em;
@@ -47,9 +47,22 @@ h1 {
 }
 
 p {
-    color: #4361ee;
+    color: rgb(0,55,218);
     padding: 1em;
     text-align: center;
     line-height: 2em;
     letter-spacing: 0.25em;
+}
+
+a {
+    color: rgb(0,55,218);
+}
+
+a:hover {
+    text-decoration: none;
+    color: rgb(193,156,0);
+}
+
+a:active {
+    color:rgb(19,161,14);
 }
