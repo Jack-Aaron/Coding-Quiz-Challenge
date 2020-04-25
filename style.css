@@ -12,8 +12,16 @@ body {
     padding-bottom: 10vh;
 }
 
-.row#top {
-    padding-top: 2rem;
-    font-size: 1.5rem;
+#top {
+    padding-top: 4vh;
+    font-size: 3vw;
     color: rgb(136, 23, 152);
+}
+
+#highscores {
+    text-align: start;
+}
+
+#time {
+    text-align: end;
 }
