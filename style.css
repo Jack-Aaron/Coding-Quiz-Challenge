@@ -25,3 +25,7 @@ body {
 #time {
     text-align: end;
 }
+
+main {
+    padding-top: 8vh;
+}
