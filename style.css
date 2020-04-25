@@ -14,7 +14,7 @@ body {
 
 #top {
     padding-top: 4vh;
-    font-size: 3vw;
+    font-size: 2vw;
     color: rgb(136, 23, 152);
 }
 
@@ -28,4 +28,12 @@ body {
 
 main {
     padding-top: 8vh;
+}
+
+h1 {
+    font-size: 5vw;
+    text-align: center;
+    color: rgb(19,161,14);
+    padding-top: 4vh;
+    letter-spacing: 0.5vw;
 }
