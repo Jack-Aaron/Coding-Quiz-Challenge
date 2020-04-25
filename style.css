@@ -6,7 +6,7 @@ body {
     height: 100%;
     width: 100%;
     font-family: 'Orbitron', sans-serif;
-    background-color: black;
+    background-color: rgb(12,12,12);
     overflow: hidden;
 }
 
@@ -39,7 +39,7 @@ h1 {
 }
 
 #instructions {
-    background-color: black;
+    background-color: rgb(12,12,12);
     margin-top: 2em;
     border: 5px solid rgb(19,161,14);
     border-radius: 4px;
@@ -65,4 +65,29 @@ a:hover {
 
 a:active {
     color:rgb(19,161,14);
+}
+
+button {
+    background: rgb(0,55,218);
+    border: solid 5px rgb(242,242,242);
+    border-radius: 3px;
+    color: rgb(242,242,242);
+    padding: 2em;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.1s;
+}
+
+button:hover {
+    background-color:rgb(12,12,12);
+    color: rgb(19,161,14);
+    border: solid 5px rgb(12,12,12);
+    letter-spacing: 0.05em;
+}
+
+button:active {
+    background-color:rgb(19,161,14);
+    color: rgb(12,12,12);
+    border: solid 5px rgb(242,242,242);
+    letter-spacing: -0.05em;
 }
