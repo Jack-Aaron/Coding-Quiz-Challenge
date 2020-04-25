@@ -11,3 +11,9 @@ body {
     grid-template-columns: auto;
     padding-bottom: 10vh;
 }
+
+.row#top {
+    padding-top: 2rem;
+    font-size: 1.5rem;
+    color: rgb(136, 23, 152);
+}
