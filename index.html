@@ -20,35 +20,47 @@
 
 <body>
     <header class="container">
-        <div class="row" id="top">
-            <div class="col-2" id="highscores">
-                <a href="/"> View Highscores</a>
+        <header class="container">
+            <div class="row" id="top">
+                <div class="col-3" id="highscores">
+                    <a href="/"> View Highscores</a>
+                </div>
+                <div class="col-6"></div>
+                <div class="col-3" id="time">
+                    Time:
+                </div>
+    
             </div>
-            <div class="col-9"></div>
-            <div class="col-1" id="timer">
-                Time:
+        </header>
+    
+        <main class="container">
+            <div class="row justify-content-center">
+                <h1>{Coding Quiz Challenge}</h1>
             </div>
-
-        </div>
-    </header>
-
-    <main class="container">
-        <figure class="container"></figure>
-        <div class="row justify-content-center">
-            <h1>Coding Quiz Challenge</h1>
-        </div>
-        <div class="row justify-content-center">
-            <p>Select the correct answer for questions about what you've learned so far in Coding Bootcamp! Your
-                alloted time in is in the upper-right corner. Wrong answers cost you 10 seconds!</p>
-        </div>
-        <div class="row">
-            <h3>Good Luck!</h3>
-        </div>
-
-        </figure>
-        <button>Start Quiz</button>
-    </main>
-
+            <figure id="instructions">
+    
+    
+                <div class="row justify-content-center">
+                    <p>Select the correct answer for questions about what you've learned so far in Coding Bootcamp! Your
+                        alloted time in is in the upper-right corner.</p>
+    
+                    <p style="color:#3a0ca3;margin-top:-2rem;">(Wrong answers cost you 10 seconds!)</p>
+                </div>
+    
+    
+            </figure> <p>. . . </p>
+            <div class="container" id="button">
+                <div class="row justify-content-center">
+                   
+                    <button>[ &nbsp;START&nbsp; ]</button>
+                </div>
+            </div>
+        </main>
+    
+        <footer>
+            <p id="footer" style="font-size: smaller;">JONATHAN ALPART 2020.</p>
+        </footer>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
