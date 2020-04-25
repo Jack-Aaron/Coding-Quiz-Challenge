@@ -37,3 +37,11 @@ h1 {
     padding-top: 4vh;
     letter-spacing: 0.5vw;
 }
+
+#instructions {
+    background-color: black;
+    margin-top: 4vh;
+    border: 5px solid rgb(19,161,14);
+    border-radius: 4vw;
+    border-style: ridge;
+}
