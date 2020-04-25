@@ -5,3 +5,9 @@ body {
     background-color: black;
     overflow: hidden;
 }
+
+.container {
+    display: grid;
+    grid-template-columns: auto;
+    padding-bottom: 10vh;
+}
