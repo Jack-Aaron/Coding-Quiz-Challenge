@@ -81,6 +81,7 @@ function newQuestion() {
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
         var answerButton = document.createElement("button")
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
+        answerButton.setAttribute("style", "padding:1em;width:100%");
         answerButton.textContent = answers[questionNumber][i];
 
     }
