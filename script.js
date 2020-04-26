@@ -11,10 +11,10 @@ startButton.addEventListener("click", function () {
 var secondsLeft = 76;
 
 function startQuiz() {
-    setTime();
+    startTimer();
 }
 
-function setTime() {
+function startTimer() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         secondsEl.textContent = secondsLeft;
