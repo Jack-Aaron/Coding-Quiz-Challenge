@@ -7,15 +7,12 @@ var secondsEl = document.querySelector("#seconds");
 // reset quiz for user
 var score = 0;
 questionNumber = 0;
+// this is the amount of time for player
+var secondsLeft = 75;
 
-// put all questions into array
-
-
-
+// put all questions and answers into array
 var questions = ["The value \"true\" is an example of what type of variable?", "Which of the following methods could be called to change a font-size of the content of an element?", "A user will be prompted if Javascript code runs which of the following methods:"];
-
-var answers = [["Boolean ","Number ","String ","Tag "], [], []];
-
+var answers = [["Boolean ", "Number ", "String ", "Tag ", 1], [], []];
 
 
 // this controls the start button
@@ -23,9 +20,6 @@ startButton.addEventListener("click", function () {
     main.innerHTML = "";
     startQuiz();
 });
-
-// this is the amount of time for player
-var secondsLeft = 75;
 
 function startQuiz() {
     startTimer();
@@ -63,13 +57,13 @@ function createQuiz() {
     ol.setAttribute("style", "padding-top:4em;");
 
     // not sure if this works...
-    newQuestion();
+    askQuestion();
 }
 
 
 
 // this function feeds the information of each question into the page structure
-function newQuestion() {
+function askQuestion() {
 
     var h1 = document.querySelector("h1");
     h1.textContent = questions[questionNumber];
@@ -85,22 +79,17 @@ function newQuestion() {
         answerButton.textContent = answers[questionNumber][i];
 
     }
+    answerButton.addEventListener("click", function (questionNumber) {
 
+        if (answers[questionNumber][4] === answers[questionNumber].indexOf(answers[questionNumber])) {
+            score = + 1;
+
+
+        }
+
+    });
 
     questionNumber++;
-
 }
 
-/* choosing an answer
-answerButton.addEventListener("click", function () {
 
-    if (answerIsCorrect === true) {
- score =+ 1;
-        newQuestion();
- return answerResponse(score);
-
-    }
-
-});
-
-*/
