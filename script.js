@@ -12,6 +12,7 @@ var secondsLeft = 76;
 
 function startQuiz() {
     startTimer();
+    createQuiz();
 }
 
 function startTimer() {
@@ -26,4 +27,10 @@ function startTimer() {
         }
 
     }, 1000);
+}
+
+function createQuiz() {
+    var tag = document.createElement("div");
+    tag.textContent = "This was made via prompts. It's a " + tag;
+    document.body.children[1].appendChild(tag);
 }
