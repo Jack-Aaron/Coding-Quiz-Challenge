@@ -3,6 +3,7 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var secondsEl = document.querySelector("#seconds");
 
+
 startButton.addEventListener("click", function () {
     main.innerHTML = "";
     startQuiz();
@@ -30,7 +31,9 @@ function startTimer() {
 }
 
 function createQuiz() {
-    var tag = document.createElement("div");
-    tag.textContent = "This was made via prompts. It's a " + tag;
-    document.body.children[1].appendChild(tag);
+    var sectionEl = document.createElement("section");
+    document.body.children[1].appendChild(sectionEl);
+    var figureEl = document.createElement("figure");
+    document.body.children[1].children[0].appendChild(figureEl);
 }
+
