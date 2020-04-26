@@ -14,7 +14,7 @@ questionNumber = 0;
 
 var questions = ["The value \"true\" is an example of what type of variable?", "Which of the following methods could be called to change a font-size of the content of an element?", "A user will be prompted if Javascript code runs which of the following methods:"];
 
-var answers = [[], [], []];
+var answers = [["Boolean ","Number ","String ","Tag "], [], []];
 
 
 
@@ -81,8 +81,8 @@ function newQuestion() {
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
         var answerButton = document.createElement("button")
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
-        answerButton.setAttribute("style", "padding:1em;");
-        answerButton.textContent = answers[questionNumber];
+        answerButton.setAttribute("style", "width:auto;");
+        answerButton.textContent = answers[questionNumber][i];
 
     }
 
