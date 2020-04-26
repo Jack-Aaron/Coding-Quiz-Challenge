@@ -101,6 +101,10 @@ button:active {
     letter-spacing: 0.05em;
 }
 
+li {
+    padding-bottom: 1.5em;
+}
+
 footer {
     position: absolute;
     text-align: center;
@@ -117,5 +121,11 @@ footer {
         margin-top: -2em;
         font-size: 70%;
     }
+}
 
+@media (max-width: 823px) and (min-height: 320px) and (orientation: portrait) {
+
+    li {
+        padding-bottom: 4em;
+    }
 }
