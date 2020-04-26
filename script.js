@@ -51,8 +51,13 @@ function createQuiz() {
     return newQuestion();
 }
 
+var score = 0;
+questionNumber = 0;
+
 // this function feeds the information of each question into the page structure
 function newQuestion() {
+
+ 
 
     var questions = ["What is 'true'?"];
     var h1 = document.querySelector("h1");
@@ -62,13 +67,26 @@ function newQuestion() {
     for (let i = 0; i < 4; i++) {
         var li = document.createElement("li");
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
-        var button = document.createElement("button")
+        var answerButton = document.createElement("button")
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(button);
-        button.setAttribute("style", "padding:1em;");
-        button.textContent = answer[i];
+        answerButton.setAttribute("style", "padding:1em;");
+        answerButton.textContent = answer[i];
 
     }
 
 
 }
 
+/* choosing an answer
+answerButton.addEventListener("click", function () {
+
+    if (answerIsCorrect === true) {
+ score =+ 1;
+        newQuestion();
+ return answerResponse(score);
+
+    }
+
+});
+
+*/
