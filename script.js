@@ -29,6 +29,7 @@ function startTimer() {
         }
 
     }, 1000);
+    return secondsLeft;
 }
 
 function createQuiz() {
@@ -40,8 +41,6 @@ function createQuiz() {
     document.body.children[1].children[0].children[0].appendChild(h1);
     var ol = document.createElement("ol");
     document.body.children[1].children[0].children[0].appendChild(ol);
-
-
 
     return newQuestion();
 }
@@ -56,7 +55,9 @@ function newQuestion() {
     for (let i = 0; i < 4; i++) {
         var li = document.createElement("li");
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
-        li.textContent = answer[i];
+        var button = document.createElement("button")
+        document.body.children[1].children[0].children[0].children[1].children[i].appendChild(button);
+        button.textContent = answer[i];
 
     }
 
