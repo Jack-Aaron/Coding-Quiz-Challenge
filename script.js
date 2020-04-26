@@ -4,11 +4,17 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var secondsEl = document.querySelector("#seconds");
 
+// reset quiz for user
+var score = 0;
+questionNumber = 0;
+
 // this controls the start button
 startButton.addEventListener("click", function () {
     main.innerHTML = "";
     startQuiz();
 });
+
+
 
 // this is the amount of time for player
 var secondsLeft = 75;
@@ -51,8 +57,7 @@ function createQuiz() {
     return newQuestion();
 }
 
-var score = 0;
-questionNumber = 0;
+
 
 // this function feeds the information of each question into the page structure
 function newQuestion() {
@@ -61,8 +66,9 @@ function newQuestion() {
 
     var questions = ["What is 'true'?"];
     var h1 = document.querySelector("h1");
-    h1.textContent = questions[0];
+    h1.textContent = questions[questionNumber];
     var answer = ["boolean", "string", "variable", "tag"]
+    questionNumber++;
 
     for (let i = 0; i < 4; i++) {
         var li = document.createElement("li");
