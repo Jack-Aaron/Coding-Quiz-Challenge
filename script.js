@@ -1,31 +1,29 @@
 var startButton = document.querySelector("button");
 var container = document.querySelector(".container");
 var main = document.querySelector("main");
+var secondsEl = document.querySelector("#seconds");
 
-startButton.addEventListener("click", function() {
+startButton.addEventListener("click", function () {
     main.innerHTML = "";
-    // startQuiz();
+    startQuiz();
 });
 
-function startTimer() {
-  
-    interval = setInterval(function() {
-      secondsElapsed++;
-      renderTime();
-    }, 1000);
-  }
+var secondsLeft = 76;
 
-  function renderTime() {
-    minutesDisplay.textContent = getFormattedMinutes();
-    secondsDisplay.textContent = getFormattedSeconds();
-  
-    if (secondsElapsed >= totalSeconds) {
-      if (status === "Working") {
-        alert("Time for a break!");
-      } else {
-        alert("Time to get back to work!");
-      }
-  
-      stopTimer();
-    }
-  }
+function startQuiz() {
+    setTime();
+}
+
+function setTime() {
+    var timerInterval = setInterval(function () {
+        secondsLeft--;
+        secondsEl.textContent = secondsLeft;
+
+
+        if (secondsLeft === 0) {
+            clearInterval(timerInterval);
+            //sendMessage();
+        }
+
+    }, 1000);
+}
