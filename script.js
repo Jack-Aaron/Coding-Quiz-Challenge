@@ -12,7 +12,7 @@ var secondsLeft = 75;
 
 // put all questions and answers into array
 var questions = ["The value \"true\" is an example of what type of variable?", "Which of the following methods could be called to change a font-size of the content of an element?", "A user will be prompted if Javascript code runs which of the following methods:"];
-var answers = [["Boolean ", "Number ", "String ", "Tag ", 1], [], []];
+var answers = [["Boolean ", "Number ", "String ", "Tag ", 0], [], []];
 
 
 // this controls the start button
@@ -60,15 +60,11 @@ function createQuiz() {
     askQuestion();
 }
 
-
-
 // this function feeds the information of each question into the page structure
 function askQuestion() {
 
     var h1 = document.querySelector("h1");
     h1.textContent = questions[questionNumber];
-
-
 
     for (let i = 0; i < 4; i++) {
         var li = document.createElement("li");
@@ -76,20 +72,45 @@ function askQuestion() {
         var answerButton = document.createElement("button")
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
         answerButton.setAttribute("style", "padding:1em;width:100%");
+        answerButton.setAttribute("id", "answer");
         answerButton.textContent = answers[questionNumber][i];
-
     }
-    answerButton.addEventListener("click", function (questionNumber) {
-
-        if (answers[questionNumber][4] === answers[questionNumber].indexOf(answers[questionNumber])) {
-            score = + 1;
 
 
-        }
-
-    });
-
-    questionNumber++;
 }
 
+//  if (i === answers[questionNumber][4]) {
+//   var answerIsCorrect = true;
+//  var correctAnswer = answers[questionNumber][4];
+// }
+/*
+var answerButtonEl = document.querySelector("#answer").textContent;
+console.log(answerButtonEl);
 
+
+answerButtonEl.addEventListener("click", function (event) {
+   var answer = event.target.textContent;
+   console.log(answer);
+
+   if (answer === answers[answers[4]]) {
+         alert("correct!");
+     }
+});
+
+
+//  console.log(correctAnswer);
+
+// if (answers[questionNumber][4] === answers.indexOf(answers[questionNumber])) {
+//   score = + 1;
+//  console.log(score);
+55
+
+     //  }
+
+//    });
+
+ //  questionNumber++;
+
+
+
+*/
