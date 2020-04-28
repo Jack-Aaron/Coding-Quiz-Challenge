@@ -4,6 +4,14 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var secondsEl = document.querySelector("#seconds");
 
+
+
+// this controls the start button
+startButton.addEventListener("click", function () {
+    main.innerHTML = "";
+    startQuiz();
+});
+
 // reset quiz for user
 var score = 0;
 questionNumber = 0;
@@ -17,7 +25,7 @@ var answers = [["Boolean ", "Number ", "String ", "Tag ", 0], [], []];
 // starts the quiz
 function startQuiz() {
     startTimer();
-    createQuiz();
+    createQuizStructure();
 }
 
 // simple interval for Timer
@@ -28,7 +36,7 @@ function startTimer() {
         secondsEl.textContent = secondsLeft;
 
         if (secondsLeft === 0) {
-            clearInterval(timerInterval);
+            clearInterval(timerInterval); // clears Interval
             //sendMessage();
         }
 
@@ -37,7 +45,7 @@ function startTimer() {
 }
 
 // this function creates the structure of the page controlling the quiz
-function createQuiz() {
+function createQuizStructure() {
     var sectionEl = document.createElement("section"); // section
     document.body.children[1].appendChild(sectionEl);
     sectionEl.setAttribute("class", "container");
@@ -50,15 +58,16 @@ function createQuiz() {
     document.body.children[1].children[0].children[0].appendChild(ol);
     ol.setAttribute("style", "padding-top:4em;");
 
-    // not sure if this works...
+    // cycles questions and answers
     askQuestion();
-}
+} // end function
 
 // this function feeds the information of each question into the page structure
 function askQuestion() {
 
     // this places the Question text into the Question area of the page
     var h1 = document.querySelector("h1");
+    h1.textContent = ""; // clears the previous question
     h1.textContent = questions[questionNumber];
 
     for (let i = 0; i < 4; i++) { // there are 4 answers
@@ -73,24 +82,19 @@ function askQuestion() {
         answerButton.setAttribute("id", "answer");
         // put the answer text in the button
         answerButton.textContent = answers[questionNumber][i];
-    }
-}
 
-// this controls the start button
-startButton.addEventListener("click", function () {
-    main.innerHTML = "";
-    startQuiz();
+    } // end for loop
+} // end function
+
+var answerButton = document.querySelector("#answer");
+
+// checks on-click if it is correct answer
+
+answerButton.addEventListener("click", function () {
+    alert("ferd");
 });
 
 
-/*() check on-click if it is correct answer
-
-var abutton = document.querySelector("answer");
-
-abutton.addEventListener("click", function (event) {
-    var answer = event.target.textContent;
-    console.log(answer);
-}); */
 
 //  if (i === answers[questionNumber][4]) {
 //   var answerIsCorrect = true;
