@@ -59,11 +59,11 @@ function createQuizStructure() {
     ol.setAttribute("style", "padding-top:4em;");
 
     // cycles questions and answers
-    askQuestion();
+    createQAStructure();
 } // end function
 
 // this function feeds the information of each question into the page structure
-function askQuestion() {
+function createQAStructure() {
 
     // this places the Question text into the Question area of the page
     var h1 = document.querySelector("h1");
