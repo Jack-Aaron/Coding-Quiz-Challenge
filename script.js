@@ -72,23 +72,16 @@ function askQuestion() {
         answerButton.setAttribute("id", "answer");
         answerButton.setAttribute("style", "padding:1em;width:100%");
         // put the answer text in the button
-        answerButton.textContent = answers[questionNumber][i];
-
-
-
+        thisAnswer = answers[questionNumber][i];
+        answerButton.textContent = thisAnswer;
+        // answerKey is the index of the correct answer, found in slot 4
         var answerKey = answers[questionNumber][4];
-        console.log(answerKey);
-        console.log(answers[questionNumber][answerKey]);
+        rightAnswer = answers[questionNumber][answerKey];
+        console.log(thisAnswer === rightAnswer);
         // correct answer will be labeled true
-       // if (
-
-    
-            
-     //       console.log(answers[questionNumber][i]);// = 
-            
-      //      console.log(answers[questionNumber][4]);// {
-       //     answerButton.value = true;
-       // }
+        if (thisAnswer === rightAnswer) {
+            answerButton.value = true;
+        } 
         // put the whole button in the site
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
 
@@ -102,11 +95,9 @@ function askQuestion() {
         olEl.addEventListener("click", function (event) {
             // stores content of answer
             var answerContent = event.target.textContent;
-            console.log(answerContent);
+            //   console.log(answerContent);
 
             // trying to check answer..
-
-
             console.log(event.target.value);
 
         });
