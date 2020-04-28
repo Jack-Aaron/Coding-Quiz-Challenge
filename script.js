@@ -14,13 +14,7 @@ var secondsLeft = 75;
 var questions = ["The value \"true\" is an example of what type of variable?", "Which of the following methods could be called to change a font-size of the content of an element?", "A user will be prompted if Javascript code runs which of the following methods:"];
 var answers = [["Boolean ", "Number ", "String ", "Tag ", 0], [], []];
 
-
-// this controls the start button
-startButton.addEventListener("click", function () {
-    main.innerHTML = "";
-    startQuiz();
-});
-
+// starts the quiz
 function startQuiz() {
     startTimer();
     createQuiz();
@@ -44,15 +38,15 @@ function startTimer() {
 
 // this function creates the structure of the page controlling the quiz
 function createQuiz() {
-    var sectionEl = document.createElement("section");
+    var sectionEl = document.createElement("section"); // section
     document.body.children[1].appendChild(sectionEl);
     sectionEl.setAttribute("class", "container");
-    var figureEl = document.createElement("figure");
+    var figureEl = document.createElement("figure"); // figure
     document.body.children[1].children[0].appendChild(figureEl);
     figureEl.setAttribute("class", "container");
-    var h1 = document.createElement("h1");
+    var h1 = document.createElement("h1"); // h1
     document.body.children[1].children[0].children[0].appendChild(h1);
-    var ol = document.createElement("ol");
+    var ol = document.createElement("ol"); // ordered list
     document.body.children[1].children[0].children[0].appendChild(ol);
     ol.setAttribute("style", "padding-top:4em;");
 
@@ -80,14 +74,23 @@ function askQuestion() {
         // put the answer text in the button
         answerButton.textContent = answers[questionNumber][i];
     }
-
-
 }
-// check on-click if it is correct answer
-button.addEventListener("click", function (event) {
+
+// this controls the start button
+startButton.addEventListener("click", function () {
+    main.innerHTML = "";
+    startQuiz();
+});
+
+
+/*() check on-click if it is correct answer
+
+var abutton = document.querySelector("answer");
+
+abutton.addEventListener("click", function (event) {
     var answer = event.target.textContent;
     console.log(answer);
-});
+}); */
 
 //  if (i === answers[questionNumber][4]) {
 //   var answerIsCorrect = true;
