@@ -73,6 +73,22 @@ function askQuestion() {
         answerButton.setAttribute("style", "padding:1em;width:100%");
         // put the answer text in the button
         answerButton.textContent = answers[questionNumber][i];
+
+
+
+        var answerKey = answers[questionNumber][4];
+        console.log(answerKey);
+        console.log(answers[questionNumber][answerKey]);
+        // correct answer will be labeled true
+       // if (
+
+    
+            
+     //       console.log(answers[questionNumber][i]);// = 
+            
+      //      console.log(answers[questionNumber][4]);// {
+       //     answerButton.value = true;
+       // }
         // put the whole button in the site
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
 
@@ -89,6 +105,10 @@ function askQuestion() {
             console.log(answerContent);
 
             // trying to check answer..
+
+
+            console.log(event.target.value);
+
         });
     };
 } // function
