@@ -4,14 +4,6 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var secondsEl = document.querySelector("#seconds");
 
-
-
-// this controls the start button
-startButton.addEventListener("click", function () {
-    main.innerHTML = "";
-    startQuiz();
-});
-
 // reset quiz for user
 var score = 0;
 questionNumber = 0;
@@ -25,7 +17,7 @@ var answers = [["Boolean ", "Number ", "String ", "Tag ", 0], [], []];
 // starts the quiz
 function startQuiz() {
     startTimer();
-    createQuizStructure();
+    createQuiz();
 }
 
 // simple interval for Timer
@@ -36,7 +28,7 @@ function startTimer() {
         secondsEl.textContent = secondsLeft;
 
         if (secondsLeft === 0) {
-            clearInterval(timerInterval); // clears Interval
+            clearInterval(timerInterval);
             //sendMessage();
         }
 
@@ -45,7 +37,7 @@ function startTimer() {
 }
 
 // this function creates the structure of the page controlling the quiz
-function createQuizStructure() {
+function createQuiz() {
     var sectionEl = document.createElement("section"); // section
     document.body.children[1].appendChild(sectionEl);
     sectionEl.setAttribute("class", "container");
@@ -59,11 +51,11 @@ function createQuizStructure() {
     ol.setAttribute("style", "padding-top:4em;");
 
     // cycles questions and answers
-    createQAStructure();
+    askQuestion();
 } // end function
 
 // this function feeds the information of each question into the page structure
-function createQAStructure() {
+function askQuestion() {
 
     // this places the Question text into the Question area of the page
     var h1 = document.querySelector("h1");
@@ -74,24 +66,37 @@ function createQAStructure() {
         // add a list item
         var li = document.createElement("li");
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
-        // add a button to hold the answers
+        // find a "button"
         var answerButton = document.createElement("button")
-        document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
-        // style the button and add an id
-        answerButton.setAttribute("style", "padding:1em;width:100%");
+        // id the button and give style
         answerButton.setAttribute("id", "answer");
+        answerButton.setAttribute("style", "padding:1em;width:100%");
         // put the answer text in the button
         answerButton.textContent = answers[questionNumber][i];
+        // put the whole button in the site
+        document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
 
     } // end for loop
-} // end function
+    checkAnswer();
 
-var answerButton = document.querySelector("#answer");
+    function checkAnswer() {
+        // makes buttons out of list items
+        var olEl = document.querySelector("ol");
 
-// checks on-click if it is correct answer
+        olEl.addEventListener("click", function (event) {
+            // stores content of answer
+            var answerContent = event.target.textContent;
+            console.log(answerContent);
 
-answerButton.addEventListener("click", function () {
-    alert("ferd");
+            // trying to check answer..
+        });
+    };
+} // function
+
+// this controls the start button
+startButton.addEventListener("click", function () {
+    main.innerHTML = "";
+    startQuiz();
 });
 
 
