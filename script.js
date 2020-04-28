@@ -93,15 +93,30 @@ function askQuestion() {
         var olEl = document.querySelector("ol");
 
         olEl.addEventListener("click", function (event) {
-            // stores content of answer
-            var answerContent = event.target.textContent;
-            //   console.log(answerContent);
-
             // trying to check answer..
-            console.log(event.target.value);
+            var answerValue = event.target.value;
+      //     console.log(answerValue);
+
+            if (answerValue === "true") {
+                console.log("right");
+                score++; // adds a point to the score
+            }
+            else {
+                console.log("wrong");
+                secondsLeft -= 5;
+            }
 
         });
     };
+
+//    function rightAnswer() {
+ //       console.log("right");
+ //   }
+  
+  //  function wrongAnswer() {
+  //      console.log("wrong");
+  // }
+
 } // function
 
 // this controls the start button
