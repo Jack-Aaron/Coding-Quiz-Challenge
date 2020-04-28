@@ -63,21 +63,31 @@ function createQuiz() {
 // this function feeds the information of each question into the page structure
 function askQuestion() {
 
+    // this places the Question text into the Question area of the page
     var h1 = document.querySelector("h1");
     h1.textContent = questions[questionNumber];
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 4; i++) { // there are 4 answers
+        // add a list item
         var li = document.createElement("li");
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
+        // add a button to hold the answers
         var answerButton = document.createElement("button")
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
+        // style the button and add an id
         answerButton.setAttribute("style", "padding:1em;width:100%");
         answerButton.setAttribute("id", "answer");
+        // put the answer text in the button
         answerButton.textContent = answers[questionNumber][i];
     }
 
 
 }
+// check on-click if it is correct answer
+button.addEventListener("click", function (event) {
+    var answer = event.target.textContent;
+    console.log(answer);
+});
 
 //  if (i === answers[questionNumber][4]) {
 //   var answerIsCorrect = true;
