@@ -6,13 +6,21 @@ var secondsEl = document.querySelector("#seconds");
 
 // reset quiz for user
 var score = 0;
-questionNumber = 0;
 // this is the amount of time for player
 var secondsLeft = 75;
 
 // put all questions and answers into array
-var questions = ["The value \"true\" is an example of what type of variable?", "Which of the following methods could be called to change a font-size of the content of an element?", "A user will be prompted if Javascript code runs which of the following methods:"];
-var answers = [["Boolean ", "Number ", "String ", "Tag ", 0], [], []];
+var questions = ["The value \"true\" is an example of what type of variable?",
+    "Which of the following methods could be called to change a font-size of the content of an element?",
+    "A user will be prompted if Javascript code runs which of the following methods:",
+    "You got through all the questions. There is no more quiz."
+];
+var answers = [
+    ["Boolean ", "Number ", "String ", "Tag ", 0],
+    [".fontSize()", ".appendChild()", ".setAttribute()", ".querySelector()", 2],
+    ["console.log()", "alert()", ".getElementByID()", "confirm();", 3],
+    ["nothing", "blank", "nada", "empty", 0]
+];
 
 // starts the quiz
 function startQuiz() {
@@ -51,11 +59,11 @@ function createQuiz() {
     ol.setAttribute("style", "padding-top:4em;");
 
     // cycles questions and answers
-    askQuestion();
+    askQuestion(0);
 } // end function
 
 // this function feeds the information of each question into the page structure
-function askQuestion() {
+function askQuestion(questionNumber) {
 
     // this places the Question text into the Question area of the page
     var h1 = document.querySelector("h1");
@@ -66,13 +74,13 @@ function askQuestion() {
     ol.innerHTML = "";
 
     for (let i = 0; i < 4; i++) { // there are 4 answers
-        
+
         // add a list item
         var li = document.createElement("li");
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
         // find a "button"
         var answerButton = document.createElement("button")
-        // id the button and give style
+        // ID the button and give style
         answerButton.setAttribute("id", "answer");
         answerButton.setAttribute("style", "padding:1em;width:100%");
         // put the answer text in the button
@@ -81,7 +89,7 @@ function askQuestion() {
         // answerKey is the index of the correct answer, found in slot 4
         var answerKey = answers[questionNumber][4];
         rightAnswer = answers[questionNumber][answerKey];
-        console.log(thisAnswer === rightAnswer);
+//      //  console.log(thisAnswer === rightAnswer);
         // correct answer will be labeled true
         if (thisAnswer === rightAnswer) {
             answerButton.value = true;
@@ -90,35 +98,13 @@ function askQuestion() {
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
 
     } // end for loop
-    
+
     // adds one to questionNumber, shifting the array to prepare for next question
-    questionNumber++;
 
-    checkAnswer();
 
-    function checkAnswer() {
-        // makes buttons out of list items
-        var olEl = document.querySelector("ol");
 
-        olEl.addEventListener("click", function (event) {
-            // trying to check answer..
-            var answerValue = event.target.value;
-            //     console.log(answerValue);
+    checkAnswer(questionNumber);
 
-            if (answerValue === "true") {
-                console.log("right");
-                score++; // adds a point to the score
-               
-            }
-            else {
-                console.log("wrong");
-                secondsLeft -= 5; // deducts five seconds
-            }
-
-            askQuestion();
-
-        });
-    };
 
     //    function rightAnswer() {
     //       console.log("right");
@@ -128,7 +114,39 @@ function askQuestion() {
     //      console.log("wrong");
     // }
 
-} // function
+} // end function
+
+
+function checkAnswer(questionNumber) {
+
+    // switches to next question
+    
+
+    // makes buttons out of list items
+    var olEl = document.querySelector("ol");
+
+    olEl.addEventListener("click", function (event) {
+
+        questionNumber++;
+        // trying to check answer..
+        var answerValue = event.target.value;
+        //     console.log(answerValue);
+
+        if (answerValue === "true") {
+            score++; // adds a point to the score
+
+        }
+        else {
+            console.log("wrong");
+            secondsLeft -= 5; // deducts five seconds
+        }
+
+        askQuestion(questionNumber);
+
+    });
+};
+
+
 
 // this controls the start button
 startButton.addEventListener("click", function () {
