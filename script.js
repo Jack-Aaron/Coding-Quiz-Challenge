@@ -2,7 +2,7 @@
 var startButton = document.querySelector("button");
 var container = document.querySelector(".container");
 var main = document.querySelector("main");
-var secondsEl = document.querySelector("#seconds");
+var seconds = document.querySelector("#seconds");
 
 // put this var here to test something, but probably can delete it after?
 var counter = 0;
@@ -47,10 +47,10 @@ function startQuiz() {
 
 // simple interval for Timer
 function startTimer() {
-    secondsEl.textContent = secondsLeft;
+    seconds.textContent = secondsLeft;
     var timerInterval = setInterval(function () {
         secondsLeft--;
-        secondsEl.textContent = secondsLeft;
+        seconds.textContent = secondsLeft;
         // when timer reaches 0
         if (secondsLeft === 0) { clearInterval(timerInterval); /* sendMessage(); */ }
     }, 1000);
@@ -70,6 +70,8 @@ function createQuiz() {
     var ol = document.createElement("ol"); // ordered list
     document.body.children[1].children[0].children[0].appendChild(ol);
     ol.setAttribute("style", "padding-top:4em;");
+    var h4 = document.createElement("h4"); //h4 (Answer results)
+    document.body.children[1].children[0].children[0].appendChild(h4);
     // starts at the first Question
     askQuestion(0);
 } // end function
@@ -104,14 +106,19 @@ function askQuestion(questionNumber) {
         // put the whole button in the site
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
     } // end for loop
+ 
     checkAnswer(questionNumber);
 } // end function
 
 
 function checkAnswer(questionNumber) {
+
+   
+
+
     // makes buttons out of list items
-    var olEl = document.querySelector("ol");
-    olEl.addEventListener("click", function (event) {
+    var ol = document.querySelector("ol");
+    ol.addEventListener("click", function (event) {
         event.stopImmediatePropagation();
         counter++;
         console.log("Counter: " + counter);
@@ -123,11 +130,11 @@ function checkAnswer(questionNumber) {
         // adds one to questionNumber, shifting the array to prepare for next Question
         questionNumber++;
         if (counter < 10) { askQuestion(questionNumber); }
-        else { endQuiz(); }
+        else { finishQuiz(); }
     });
 };
 
-function endQuiz() {
+function finishQuiz() {
     main.innerHTML = "";
 };
 
