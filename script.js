@@ -4,6 +4,7 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var seconds = document.querySelector("#seconds");
 var header = document.querySelector("header");
+var figure = document.querySelector("figure");
 
 // put this var here to test something, but probably can delete it after?
 var counter = 0;
@@ -70,7 +71,7 @@ function createQuiz() {
     document.body.children[1].children[0].children[0].appendChild(h1);
     var ol = document.createElement("ol"); // ordered list
     document.body.children[1].children[0].children[0].appendChild(ol);
-    ol.setAttribute("style", "padding-top:4em;");
+    ol.setAttribute("style", "padding-top:5vh;");
     var h4 = document.createElement("h4"); //h4 (Answer results)
     document.body.children[1].children[0].children[0].appendChild(h4);
     // starts at the first Question
@@ -137,7 +138,7 @@ function checkAnswer(questionNumber) {
             /* deducts five seconds */
             secondsLeft -= 5;
             var h4 = document.querySelector("h4");
-            h4.setAttribute("style", "text-align:center;color:rgb(136, 23, 152);");
+            h4.setAttribute("style", "text-align:center;color:rgb(136, 23, 152);")
             h4.textContent = "";
             h4.textContent = "Incorrect!";
         }
@@ -156,8 +157,8 @@ function finishQuiz() {
 // this controls the start button
 startButton.addEventListener("click", function () {
     main.innerHTML = "";
-    main.style="padding-top:0;"
-
+    // correctly spaces new divs
+    main.style="margin-top:-4em;"
     startQuiz();
 });
 
