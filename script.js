@@ -81,11 +81,15 @@ function askQuestion() {
         // correct answer will be labeled true
         if (thisAnswer === rightAnswer) {
             answerButton.value = true;
-        } 
+        }
         // put the whole button in the site
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
 
     } // end for loop
+    
+    // adds one to questionNumber, shifting the array to prepare for next question
+    questionNumber++;
+
     checkAnswer();
 
     function checkAnswer() {
@@ -95,27 +99,30 @@ function askQuestion() {
         olEl.addEventListener("click", function (event) {
             // trying to check answer..
             var answerValue = event.target.value;
-      //     console.log(answerValue);
+            //     console.log(answerValue);
 
             if (answerValue === "true") {
                 console.log("right");
                 score++; // adds a point to the score
+               
             }
             else {
                 console.log("wrong");
-                secondsLeft -= 5;
+                secondsLeft -= 5; // deducts five seconds
             }
+
+            askQuestion();
 
         });
     };
 
-//    function rightAnswer() {
- //       console.log("right");
- //   }
-  
-  //  function wrongAnswer() {
-  //      console.log("wrong");
-  // }
+    //    function rightAnswer() {
+    //       console.log("right");
+    //   }
+
+    //  function wrongAnswer() {
+    //      console.log("wrong");
+    // }
 
 } // function
 
