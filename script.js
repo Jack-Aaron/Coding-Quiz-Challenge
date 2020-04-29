@@ -61,8 +61,12 @@ function askQuestion() {
     var h1 = document.querySelector("h1");
     h1.textContent = ""; // clears the previous question
     h1.textContent = questions[questionNumber];
+    // clear all previous answers
+    var ol = document.querySelector("ol");
+    ol.innerHTML = "";
 
     for (let i = 0; i < 4; i++) { // there are 4 answers
+        
         // add a list item
         var li = document.createElement("li");
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
