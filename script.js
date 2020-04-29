@@ -4,7 +4,6 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var seconds = document.querySelector("#seconds");
 var header = document.querySelector("header");
-var figure = document.querySelector("figure");
 
 // put this var here to test something, but probably can delete it after?
 var counter = 0;
@@ -40,6 +39,14 @@ var answers = [
     ["Wrong Answer", "Wrong Answer", "Correct Answer", "Wrong Answer", 2],
     ["nothing", "blank", "nada", "empty", 0],
 ];
+
+// set up local storage
+var highScores;
+if (localStorage.highScores === undefined) {
+    highScores = [];
+} else {
+    highScores = JSON.parse(window.localStorage.highScores);
+}
 
 // starts the quiz
 function startQuiz() {
@@ -108,34 +115,28 @@ function askQuestion(questionNumber) {
         // put the whole button in the site
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
     } // end for loop
- 
+
     checkAnswer(questionNumber);
 } // end function
 
-
 function checkAnswer(questionNumber) {
-
-   
-
-
     // makes buttons out of list items
     var ol = document.querySelector("ol");
     ol.addEventListener("click", function (event) {
         event.stopImmediatePropagation();
-        counter++;
-        console.log("Counter: " + counter);
         // checks Answer
         var answerValue = event.target.value;
         if (answerValue === "true") {
-            /* adds a point to the score */
+            // adds a point to the score
             score++;
+            // creates and fills a heading with Answer Result
             var h4 = document.querySelector("h4");
             h4.setAttribute("style", "text-align:center;color:rgb(19,161,14);");
             h4.textContent = "";
             h4.textContent = "Correct!";
         }
         else {
-            /* deducts five seconds */
+            // deducts five seconds
             secondsLeft -= 5;
             var h4 = document.querySelector("h4");
             h4.setAttribute("style", "text-align:center;color:rgb(136, 23, 152);")
@@ -145,57 +146,69 @@ function checkAnswer(questionNumber) {
         console.log("Score: " + score);
         // adds one to questionNumber, shifting the array to prepare for next Question
         questionNumber++;
-        if (counter < 10) { askQuestion(questionNumber); }
+        // stops 
+        if (questionNumber < 10) { askQuestion(questionNumber); }
         else { finishQuiz(); }
     });
 };
 
 function finishQuiz() {
-    main.innerHTML = "";
+    var figure = document.querySelector("figure");
+    figure.innerHTML = "";
+    score += secondsLeft;
+
+
+
+
+
+    secondsLeft = 1;
+
+
+
+    displayScore();
 };
 
+// function to store High Scores to local storage
+
+
+
+function displayScore() {
+    var h1 = document.createElement("h1");
+    document.body.children[1].children[0].children[0].appendChild(h1);
+    h1.innerHTML = "";
+    h1.setAttribute("style", "text-align:center;font-size:2em;color:rgb(19,161,14)")
+    h1.textContent = "Your Score" + score;
+    return checkScore(score);
+}
+
+
+function checkScore(score) {
+    if (score > highScores) {
+        var h4 = document.createElement("h4");
+        document.body.children[1].children[0].children[0].appendChild(h4);
+        h4.innerHTML = "";
+        h4.setAttribute("style", "text-align:center;font-size:4em;color:rgb(19,161,14)")
+        h4.textContent = "You got a new high score!";
+        return storeScore(score);
+    }
+}
+
+function storeScore(score) {
+    var newScore = highScores;
+    newScore += score;
+    console.log(newScore);
+}
+
+//function storeHS() {
+//  localStorage.setItem("highScores", JSON.stringify(score));
+
+
+//}
+
 // this controls the start button
-startButton.addEventListener("click", function () {
+startButton.addEventListener("click", function () { 
     main.innerHTML = "";
     // correctly spaces new divs
-    main.style="margin-top:-4em;"
+    main.style = "margin-top:-4em;"
     startQuiz();
 });
-
-
-
-//  if (i === answers[questionNumber][4]) {
-//   var answerIsCorrect = true;
-//  var correctAnswer = answers[questionNumber][4];
-// }
-/*
-var answerButtonEl = document.querySelector("#answer").textContent;
-console.log(answerButtonEl);
-
-
-answerButtonEl.addEventListener("click", function (event) {
-   var answer = event.target.textContent;
-   console.log(answer);
-
-   if (answer === answers[answers[4]]) {
-         alert("correct!");
-     }
-});
-
-
-//  console.log(correctAnswer);
-
-// if (answers[questionNumber][4] === answers.indexOf(answers[questionNumber])) {
-//   score = + 1;
-//  console.log(score);
-55
-
-     //  }
-
-//    });
-
- //  questionNumber++;
-
-
-
-*/
