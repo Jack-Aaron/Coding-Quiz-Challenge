@@ -97,7 +97,7 @@ button:hover {
 button:active {
     background-color:rgb(12,12,12);
     color: rgb(19,161,14);
-    border: solid 5px rgb(19,161,14);;
+    border: solid 5px rgb(19,161,14);
     letter-spacing: 0.05em;
 }
 
@@ -117,8 +117,11 @@ footer {
 
 @media (max-width: 823px) and (min-height: 320px) and (orientation: landscape) {
 
+    header.container {
+        padding-bottom: 2rem;
+    }
+
     main {
-        margin-top: -2em;
         font-size: 70%;
     }
 }
