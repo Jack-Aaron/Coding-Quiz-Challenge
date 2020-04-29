@@ -4,6 +4,7 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var secondsEl = document.querySelector("#seconds");
 
+// put this var here to test something, but probably can delete it after?
 var counter = 0;
 
 // reset quiz for user
@@ -80,12 +81,10 @@ function createQuiz() {
 
 // this function feeds the information of each question into the page structure
 function askQuestion(questionNumber) {
-    console.log(questionNumber);
     // this places the Question text into the Question area of the page
     var h1 = document.querySelector("h1");
     h1.textContent = ""; // clears the previous question
     h1.textContent = questions[questionNumber];
-    console.log(questionNumber);
     // clear all previous answers
     var ol = document.querySelector("ol");
     ol.innerHTML = "";
@@ -102,13 +101,10 @@ function askQuestion(questionNumber) {
         answerButton.setAttribute("style", "padding:1em;width:100%");
         // put the answer text in the button
         thisAnswer = answers[questionNumber][i];
-        console.log(questionNumber);
         answerButton.textContent = thisAnswer;
         // answerKey is the index of the correct answer, found in slot 4
         var answerKey = answers[questionNumber][4];
-        console.log(questionNumber);
         rightAnswer = answers[questionNumber][answerKey];
-        console.log(questionNumber);
         //      //  console.log(thisAnswer === rightAnswer);
         // correct answer will be labeled true
         if (thisAnswer === rightAnswer) {
@@ -118,14 +114,12 @@ function askQuestion(questionNumber) {
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
 
     } // end for loop
-    console.log(questionNumber);
     checkAnswer(questionNumber);
 
 } // end function
 
 
 function checkAnswer(questionNumber) {
-    console.log(questionNumber);
     // makes buttons out of list items
     var olEl = document.querySelector("ol");
     olEl.addEventListener("click", function (event) {
@@ -135,20 +129,16 @@ function checkAnswer(questionNumber) {
         // trying to check answer..
         var answerValue = event.target.value;
         if (answerValue === "true") {
-            score++; // adds a point to the score
-            console.log("Score: " + score);
+             // adds a point to the score
+            score++;
         }
         else {
-            console.log("wrong");
-            secondsLeft -= 5; // deducts five seconds
-            console.log(answerValue === "");
+            // deducts five seconds
+            secondsLeft -= 5;
         }
+        console.log("Score: " + score);
         // adds one to questionNumber, shifting the array to prepare for next question
-        console.log(questionNumber);
-
-
         questionNumber++;
-        console.log(questionNumber);
         askQuestion(questionNumber);
 
     });
