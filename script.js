@@ -51,12 +51,8 @@ function startTimer() {
     var timerInterval = setInterval(function () {
         secondsLeft--;
         secondsEl.textContent = secondsLeft;
-
-        if (secondsLeft === 0) {
-            clearInterval(timerInterval);
-            //sendMessage();
-        }
-
+        // when timer reaches 0
+        if (secondsLeft === 0) { clearInterval(timerInterval); /* sendMessage(); */ }
     }, 1000);
     return secondsLeft;
 }
@@ -74,23 +70,21 @@ function createQuiz() {
     var ol = document.createElement("ol"); // ordered list
     document.body.children[1].children[0].children[0].appendChild(ol);
     ol.setAttribute("style", "padding-top:4em;");
-
-    // cycles questions and answers
+    // starts at the first Question
     askQuestion(0);
 } // end function
 
-// this function feeds the information of each question into the page structure
+// this function feeds the information of each Question into the page structure
 function askQuestion(questionNumber) {
     // this places the Question text into the Question area of the page
     var h1 = document.querySelector("h1");
-    h1.textContent = ""; // clears the previous question
+    h1.textContent = ""; // clears the previous Question
     h1.textContent = questions[questionNumber];
-    // clear all previous answers
+    // clear all previous Answers
     var ol = document.querySelector("ol");
     ol.innerHTML = "";
-
-    for (let i = 0; i < 4; i++) { // there are 4 answers
-
+    // for each Answer, let's display them
+    for (let i = 0; i < 4; i++) { // there are 4 Answers
         // add a list item
         var li = document.createElement("li");
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
@@ -99,23 +93,18 @@ function askQuestion(questionNumber) {
         // ID the button and give style
         answerButton.setAttribute("id", "answer");
         answerButton.setAttribute("style", "padding:1em;width:100%");
-        // put the answer text in the button
+        // put the Answer text in the button
         thisAnswer = answers[questionNumber][i];
         answerButton.textContent = thisAnswer;
-        // answerKey is the index of the correct answer, found in slot 4
+        // answerKey is the index of the correct Answer, always found in slot 4
         var answerKey = answers[questionNumber][4];
         rightAnswer = answers[questionNumber][answerKey];
-        //      //  console.log(thisAnswer === rightAnswer);
-        // correct answer will be labeled true
-        if (thisAnswer === rightAnswer) {
-            answerButton.value = true;
-        }
+        // correct Answer will be labeled true
+        if (thisAnswer === rightAnswer) { answerButton.value = true; }
         // put the whole button in the site
         document.body.children[1].children[0].children[0].children[1].children[i].appendChild(answerButton);
-
     } // end for loop
     checkAnswer(questionNumber);
-
 } // end function
 
 
@@ -126,23 +115,19 @@ function checkAnswer(questionNumber) {
         event.stopImmediatePropagation();
         counter++;
         console.log("Counter: " + counter);
-        // trying to check answer..
+        // checks Answer
         var answerValue = event.target.value;
-        if (answerValue === "true") {
-             // adds a point to the score
-            score++;
-        }
-        else {
-            // deducts five seconds
-            secondsLeft -= 5;
-        }
+        if (answerValue === "true") { /* adds a point to the score */ score++; }
+        else {  /* deducts five seconds */ secondsLeft -= 5; }
         console.log("Score: " + score);
-        // adds one to questionNumber, shifting the array to prepare for next question
+        // adds one to questionNumber, shifting the array to prepare for next Question
         questionNumber++;
-        askQuestion(questionNumber);
-
+        if (counter < 10) { askQuestion(questionNumber); }
+        else { endQuiz(); }
     });
 };
+
+function endQuiz();
 
 // this controls the start button
 startButton.addEventListener("click", function () {
