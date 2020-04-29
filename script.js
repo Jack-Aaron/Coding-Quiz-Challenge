@@ -124,7 +124,14 @@ function checkAnswer(questionNumber) {
         console.log("Counter: " + counter);
         // checks Answer
         var answerValue = event.target.value;
-        if (answerValue === "true") { /* adds a point to the score */ score++; }
+        if (answerValue === "true") {
+            /* adds a point to the score */
+            score++;
+            var h4 = document.querySelector("h4");
+            h4.setAttribute("style", "text-align:center;color:rgb(136, 23, 152);");
+            h4.textContent = "";
+            h4.textContent = "Correct!";
+        }
         else {  /* deducts five seconds */ secondsLeft -= 5; }
         console.log("Score: " + score);
         // adds one to questionNumber, shifting the array to prepare for next Question
@@ -141,6 +148,7 @@ function finishQuiz() {
 // this controls the start button
 startButton.addEventListener("click", function () {
     main.innerHTML = "";
+    main.style = "margin-top:-8em;";
     startQuiz();
 });
 
