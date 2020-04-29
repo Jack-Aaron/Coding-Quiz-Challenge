@@ -127,7 +127,9 @@ function checkAnswer(questionNumber) {
     });
 };
 
-function endQuiz();
+function endQuiz() {
+    main.innerHTML = "";
+};
 
 // this controls the start button
 startButton.addEventListener("click", function () {
