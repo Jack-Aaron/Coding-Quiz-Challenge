@@ -4,6 +4,8 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var secondsEl = document.querySelector("#seconds");
 
+var counter = 0;
+
 // reset quiz for user
 var score = 0;
 // this is the amount of time for player
@@ -13,13 +15,27 @@ var secondsLeft = 75;
 var questions = ["The value \"true\" is an example of what type of variable?",
     "Which of the following methods could be called to change a font-size of the content of an element?",
     "A user will be prompted if Javascript code runs which of the following methods:",
+    "Question 4",
+    "Question 5",
+    "Question 6",
+    "Question 7",
+    "Question 8",
+    "Question 9",
+    "Question 10",
     "You got through all the questions. There is no more quiz."
 ];
 var answers = [
     ["Boolean ", "Number ", "String ", "Tag ", 0],
     [".fontSize()", ".appendChild()", ".setAttribute()", ".querySelector()", 2],
     ["console.log()", "alert()", ".getElementByID()", "confirm();", 3],
-    ["nothing", "blank", "nada", "empty", 0]
+    ["Correct Answer", "Wrong Answer", "Wrong Answer", "Wrong Answer", 0],
+    ["Wrong Answer", "Wrong Answer", "Correct Answer", "Wrong Answer", 2],
+    ["Wrong Answer", "Wrong Answer", "Wrong Answer", "Correct Answer", 3],
+    ["Wrong Answer", "Wrong Answer", "Wrong Answer", "Correct Answer", 3],
+    ["Wrong Answer", "Correct Answer", "Wrong Answer", "Wrong Answer", 1],
+    ["Wrong Answer", "Correct Answer", "Wrong Answer", "Wrong Answer", 1],
+    ["Wrong Answer", "Wrong Answer", "Correct Answer", "Wrong Answer", 2],
+    ["nothing", "blank", "nada", "empty", 0],
 ];
 
 // starts the quiz
@@ -113,13 +129,16 @@ function checkAnswer(questionNumber) {
     // makes buttons out of list items
     var olEl = document.querySelector("ol");
     olEl.addEventListener("click", function (event) {
-console.log("button!");
+        event.stopImmediatePropagation();
+        counter++;
+        console.log("Counter: " + counter);
         // trying to check answer..
         var answerValue = event.target.value;
         if (answerValue === "true") {
             score++; // adds a point to the score
+            console.log("Score: " + score);
         }
-        else if (answerValue === "") {
+        else {
             console.log("wrong");
             secondsLeft -= 5; // deducts five seconds
             console.log(answerValue === "");
