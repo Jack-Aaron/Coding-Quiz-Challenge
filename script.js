@@ -156,15 +156,7 @@ function finishQuiz() {
     var figure = document.querySelector("figure");
     figure.innerHTML = "";
     score += secondsLeft;
-
-
-
-
-
     secondsLeft = 1;
-
-
-
     displayScore();
 };
 
@@ -181,32 +173,25 @@ function displayScore() {
     return checkScore(score);
 }
 
-
 function checkScore(score) {
-    if (score > highScores) {
+    if (score > highScores[highScores.length - 1]) {
         var h4 = document.createElement("h4");
         document.body.children[1].children[0].children[0].appendChild(h4);
         h4.innerHTML = "";
         h4.setAttribute("style", "text-align:center;font-size:4em;color:rgb(19,161,14)")
         h4.textContent = "You got a new high score!";
-        return storeScore(score);
+        highScores.push(score);
+        return storeScore(highScores);
     }
 }
 
-function storeScore(score) {
-    var newScore = highScores;
-    newScore += score;
-    console.log(newScore);
+function storeScore(highScores) {
+    console.log(highScores);
+    localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
-//function storeHS() {
-//  localStorage.setItem("highScores", JSON.stringify(score));
-
-
-//}
-
 // this controls the start button
-startButton.addEventListener("click", function () { 
+startButton.addEventListener("click", function () {
     main.innerHTML = "";
     // correctly spaces new divs
     main.style = "margin-top:-4em;"
