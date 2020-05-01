@@ -164,7 +164,6 @@ function finishQuiz() {
 function displayScore() {
     // move main down more towards center of screen
     var main = document.querySelector("main");
-    main.setAttribute("style", "padding-top:4em;")
     // create the Your Score heading
     var h1 = document.createElement("h1");
     document.body.children[1].children[0].children[0].appendChild(h1);
@@ -185,10 +184,9 @@ function checkScore(score) {
         var h4 = document.createElement("h4");
         document.body.children[1].children[0].children[0].appendChild(h4);
         h4.innerHTML = "";
-        h4.setAttribute("style", "text-align:center;font-size:4em;margin-top:2em;color:rgb(19,161,14)")
+        h4.setAttribute("style", "text-align:center;font-size:4em;margin-top:1em;color:rgb(19,161,14)")
         h4.textContent = "You got a new high score!";
         highScores.push(score);
-        return storeScore(highScores);
     }
 }
 
