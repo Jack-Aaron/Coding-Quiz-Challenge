@@ -183,29 +183,40 @@ function checkScore(score) {
     if (highScores.length >= 0 && score > highScores[highScores.length - 1] || highScores.length === 0) {
         // add the score to the high scores list! woohoo!
         highScores.push(score);
-        // create heading for annoucement
-        var h4 = document.createElement("h4");
-        h4.innerHTML = "";
-        h4.setAttribute("style", "text-align:center;font-size:4em;margin-top:1em;color:rgb(19,161,14)")
-        h4.textContent = "You got a new high score!";
-        document.body.children[1].children[0].children[0].appendChild(h4);
-        // ask for initials...
-        var h5 = document.createElement("h5");
-        h5.innerHTML = "";
-        h5.setAttribute("style", "text-align:center;font-size:2em;margin-top:1em;color:rgb(19,161,14)")
-        h5.textContent = "Enter Your Initials:";
-        document.body.children[1].children[0].children[0].appendChild(h5);
-        // need user input for initials
-        var initials = document.createElement("textarea"); // set up the field
+        // run next function
+        highScore();
+    }
+}
+
+
+function highScore() {
+    // create heading for annoucement
+    var h4 = document.createElement("h4");
+    h4.innerHTML = "";
+    h4.setAttribute("style", "text-align:center;font-size:4em;margin-top:1em;color:rgb(19,161,14)")
+    h4.textContent = "You got a new high score!";
+    document.body.children[1].children[0].children[0].appendChild(h4);
+    // ask for initials...
+    var h5 = document.createElement("h5");
+    h5.innerHTML = "";
+    h5.setAttribute("style", "text-align:center;font-size:2em;margin-top:1em;color:rgb(19,161,14)")
+    h5.textContent = "Enter Your Initials:";
+    document.body.children[1].children[0].children[0].appendChild(h5);
+    // need user input for initials
+    getInitials();
+
+    function getInitials() {
+        var initials = document.createElement("input"); // set up the field
         initials.innerHTML = "";
-        initials.setAttribute("textarea", "autofocus")
-        initials.setAttribute("class","container");
+        initials.setAttribute("autofocus", "true")
+        initials.setAttribute("class", "container");
         initials.setAttribute("type", "text");
         initials.setAttribute("name", "fname");
-        initials.setAttribute("style", "height:10vh;font-size:4em;text-align:center;margin-top:1em;color:rgb(193,156,0);background-color:transparent;border:none;");
+        initials.setAttribute("style", "text-transform: uppercase;height:auto;width:auto;font-size:4em;text-align:center;margin-top:1em;color:rgb(193,156,0);background-color:transparent;border:none;");
         document.body.children[1].children[0].children[0].appendChild(initials); // create
     }
 }
+
 
 function storeScore(highScores) {
     localStorage.setItem("highScores", JSON.stringify(highScores));
