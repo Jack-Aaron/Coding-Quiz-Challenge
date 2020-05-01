@@ -45,7 +45,7 @@ var highScores;
 if (localStorage.highScores === undefined) {
     highScores = [];
 } else {
-    highScores = JSON.parse(window.localStorage.highScores);
+    highScores = JSON.parse(localStorage.highScores);
 }
 
 // starts the quiz
@@ -81,9 +81,10 @@ function createQuiz() {
     ol.setAttribute("style", "padding-top:5vh;");
     var h4 = document.createElement("h4"); //h4 (Answer results)
     document.body.children[1].children[0].children[0].appendChild(h4);
+
     // starts at the first Question
     askQuestion(0);
-} // end function
+}
 
 // this function feeds the information of each Question into the page structure
 function askQuestion(questionNumber) {
@@ -117,7 +118,7 @@ function askQuestion(questionNumber) {
     } // end for loop
 
     checkAnswer(questionNumber);
-} // end function
+}
 
 function checkAnswer(questionNumber) {
     // makes buttons out of list items
@@ -143,7 +144,6 @@ function checkAnswer(questionNumber) {
             h4.textContent = "";
             h4.textContent = "Incorrect!";
         }
-        console.log("Score: " + score);
         // adds one to questionNumber, shifting the array to prepare for next Question
         questionNumber++;
         // stops 
@@ -160,25 +160,32 @@ function finishQuiz() {
     displayScore();
 };
 
-// function to store High Scores to local storage
-
-
 
 function displayScore() {
+    // move main down more towards center of screen
+    var main = document.querySelector("main");
+    main.setAttribute("style", "padding-top:4em;")
+    // create the Your Score heading
     var h1 = document.createElement("h1");
     document.body.children[1].children[0].children[0].appendChild(h1);
     h1.innerHTML = "";
     h1.setAttribute("style", "text-align:center;font-size:2em;color:rgb(19,161,14)")
-    h1.textContent = "Your Score" + score;
+    h1.textContent = "Your Score";
+    // create the heading that diplsays the score
+    var h1 = document.createElement("h1");
+    document.body.children[1].children[0].children[0].appendChild(h1);
+    h1.innerHTML = "";
+    h1.setAttribute("style", "text-align:center;font-size:2em;color:rgb(19,161,14)")
+    h1.textContent = score;
     return checkScore(score);
 }
 
 function checkScore(score) {
-    if (score > highScores[highScores.length - 1]) {
+    if (highScores.length >= 0 && score > highScores[highScores.length - 1] || highScores.length === 0) {
         var h4 = document.createElement("h4");
         document.body.children[1].children[0].children[0].appendChild(h4);
         h4.innerHTML = "";
-        h4.setAttribute("style", "text-align:center;font-size:4em;color:rgb(19,161,14)")
+        h4.setAttribute("style", "text-align:center;font-size:4em;margin-top:2em;color:rgb(19,161,14)")
         h4.textContent = "You got a new high score!";
         highScores.push(score);
         return storeScore(highScores);
@@ -186,7 +193,6 @@ function checkScore(score) {
 }
 
 function storeScore(highScores) {
-    console.log(highScores);
     localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
