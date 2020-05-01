@@ -198,14 +198,12 @@ function checkScore(score) {
         // need user input for initials
         var initials = document.createElement("textarea"); // set up the field
         initials.innerHTML = "";
+        initials.setAttribute("textarea", "autofocus")
         initials.setAttribute("class","container");
+        initials.setAttribute("type", "text");
+        initials.setAttribute("name", "fname");
+        initials.setAttribute("style", "height:10vh;font-size:4em;text-align:center;margin-top:1em;color:rgb(193,156,0);background-color:transparent;border:none;");
         document.body.children[1].children[0].children[0].appendChild(initials); // create
-
-        // blinking cursor
-
-
-     //   <input type="text" name="fname" autofocus>
-
     }
 }
 
