@@ -180,7 +180,7 @@ function displayScore() {
 }
 
 function checkScore(score) {
-    if (highScores.length >= 0 && score > highScores[highScores.length - 1] || highScores.length === 0) {
+    if (highScores.length >= 0 && score > highScores[highScores.length - 1][1] || highScores.length === 0) {
         // run next function
         highScore(score);
     }
@@ -218,17 +218,20 @@ function highScore(score) {
         // document.body.children[1].children[0].children[0].appendChild(initialsButton);
 
         // this event submits initials
-        initials.addEventListener("input", function (initials) {
-            if (initials.textContent !== null) {
+        initials.addEventListener("input", function () {
 
-                var scoreSubmission = initials.innerHTML;
-                score = [scoreSubmission, score];
-                console.log(score);
-                highScores.push(score);
-                storeScore(highScores);
-            }
+        
+            var scoreSubmission = initials.value;
+
+            if (initials.value.length === 3) {
+            score = [scoreSubmission, score];
+            console.log(score);
+            highScores.push(score);
+            storeScore(highScores);
+        }
 
         });
+   
 
         // moderate the input
         //    checkInitials(initials.textContent);
