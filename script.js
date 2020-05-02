@@ -180,7 +180,7 @@ function displayScore() {
 }
 
 function checkScore(score) {
-    if (highScores.length >= 0 && score > highScores[highScores.length - 1][1] || highScores.length === 0) {
+    if (highScores.length > 0 && score > highScores[highScores.length - 1][1] || highScores.length === 0) {
         // run next function
         highScore(score);
     }
@@ -223,7 +223,7 @@ function highScore(score) {
         
             var scoreSubmission = initials.value;
 
-            if (initials.value.length === 3) {
+            if (scoreSubmission.length === 3) {
             score = [scoreSubmission, score];
             console.log(score);
             highScores.push(score);
