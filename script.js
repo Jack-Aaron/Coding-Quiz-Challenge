@@ -169,27 +169,24 @@ function displayScore() {
     document.body.children[1].children[0].children[0].appendChild(h1);
     h1.innerHTML = "";
     h1.setAttribute("style", "text-align:center;font-size:2em;color:rgb(19,161,14)")
-    h1.textContent = "Your Score";
+    h1.textContent = "YOUR SCORE";
     // create the heading that diplsays the score
     var h1 = document.createElement("h1");
     document.body.children[1].children[0].children[0].appendChild(h1);
     h1.innerHTML = "";
-    h1.setAttribute("style", "text-align:center;font-size:2em;color:rgb(19,161,14)")
+    h1.setAttribute("style", "text-align:center;font-size:2em;color:rgb(193,156,0)")
     h1.textContent = score;
     return checkScore(score);
 }
 
 function checkScore(score) {
     if (highScores.length >= 0 && score > highScores[highScores.length - 1] || highScores.length === 0) {
-        // add the score to the high scores list! woohoo!
-        highScores.push(score);
         // run next function
-        highScore();
+        highScore(score);
     }
 }
 
-
-function highScore() {
+function highScore(score) {
     // create heading for annoucement
     var h4 = document.createElement("h4");
     h4.innerHTML = "";
@@ -210,12 +207,45 @@ function highScore() {
         initials.innerHTML = "";
         initials.setAttribute("autofocus", "true")
         initials.setAttribute("class", "container");
+        initials.setAttribute("maxlength", "3"); // this limits to initials
         initials.setAttribute("type", "text");
         initials.setAttribute("name", "fname");
-        initials.setAttribute("style", "text-transform: uppercase;height:auto;width:auto;font-size:4em;text-align:center;margin-top:1em;color:rgb(193,156,0);background-color:transparent;border:none;");
+        initials.setAttribute("style", "line-height:1em;text-transform:uppercase;width:4em;font-size:4em;text-align:center;align-items:center;margin-top:1em;color:rgb(242,242,242);background-color:transparent;border:none;");
         document.body.children[1].children[0].children[0].appendChild(initials); // create
+
+        // var initialsButton = document.createElement("button"); // submit button
+        //  initialsButton.innerHTML = "SUBMIT";
+        // document.body.children[1].children[0].children[0].appendChild(initialsButton);
+
+        // this event submits initials
+        initials.addEventListener("input", function (initials) {
+            if (initials.textContent !== null) {
+
+                var scoreSubmission = initials.innerHTML;
+                score = [scoreSubmission, score];
+                console.log(score);
+                highScores.push(score);
+                storeScore(highScores);
+            }
+
+        });
+
+        // moderate the input
+        //    checkInitials(initials.textContent);
     }
+
+    // function checkInitials(initials) {
+
+    //   if (initials.length === 3) {
+    //     highScores[highScores.length].initials = initials;
+    //      console.log(initials);
+    //   }
+
+    // }
 }
+
+// add the score to the high scores list! woohoo!
+
 
 
 function storeScore(highScores) {
