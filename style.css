@@ -62,16 +62,16 @@ p {
     letter-spacing: 0.25em;
 }
 
-a {
+#highscores {
     color: rgb(0,55,218);
 }
 
-a:hover {
+#highscores:hover {
     text-decoration: none;
     color: rgb(193,156,0);
 }
 
-a:active {
+#highscores:active {
     color:rgb(19,161,14);
 }  
 

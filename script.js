@@ -4,7 +4,7 @@ var container = document.querySelector(".container");
 var main = document.querySelector("main");
 var seconds = document.getElementById("seconds");
 var header = document.querySelector("header");
-var highScores = document.getElementById("highscores");
+var viewHighScores = document.getElementById("highscores");
 
 // put this var here to test something, but probably can delete it after?
 var counter = 0;
@@ -241,8 +241,6 @@ startButton.addEventListener("click", function () {
 });
 
 // this controls the View Highscores button
-startButton.addEventListener("click", function () {
-    main.innerHTML = "";
-    
-    startQuiz();
+viewHighScores.addEventListener("click", function () {
+ console.log(localStorage.getItem("highScores"));
 });
