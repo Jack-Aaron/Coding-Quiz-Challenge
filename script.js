@@ -2,8 +2,9 @@
 var startButton = document.querySelector("button");
 var container = document.querySelector(".container");
 var main = document.querySelector("main");
-var seconds = document.querySelector("#seconds");
+var seconds = document.getElementById("seconds");
 var header = document.querySelector("header");
+var highScores = document.getElementById("highscores");
 
 // put this var here to test something, but probably can delete it after?
 var counter = 0;
@@ -212,44 +213,20 @@ function highScore(score) {
         initials.setAttribute("name", "fname");
         initials.setAttribute("style", "line-height:1em;text-transform:uppercase;width:4em;font-size:4em;text-align:center;align-items:center;margin-top:1em;color:rgb(242,242,242);background-color:transparent;border:none;");
         document.body.children[1].children[0].children[0].appendChild(initials); // create
-
-        // var initialsButton = document.createElement("button"); // submit button
-        //  initialsButton.innerHTML = "SUBMIT";
-        // document.body.children[1].children[0].children[0].appendChild(initialsButton);
-
         // this event submits initials
         initials.addEventListener("input", function () {
-
-        
-            var scoreSubmission = initials.value;
-
-            if (scoreSubmission.length === 3) {
-            score = [scoreSubmission, score];
-            console.log(score);
-            highScores.push(score);
-            storeScore(highScores);
-        }
-
+            // when they type three letters...
+            var initialsInput = initials.value;
+            // put the initials along with the score into array for storage
+            if (initialsInput.length === 3) {
+                score = [initialsInput, score];
+                // add the score to the high scores list! woohoo!
+                highScores.push(score);
+                storeScore(highScores);
+            }
         });
-   
-
-        // moderate the input
-        //    checkInitials(initials.textContent);
     }
-
-    // function checkInitials(initials) {
-
-    //   if (initials.length === 3) {
-    //     highScores[highScores.length].initials = initials;
-    //      console.log(initials);
-    //   }
-
-    // }
 }
-
-// add the score to the high scores list! woohoo!
-
-
 
 function storeScore(highScores) {
     localStorage.setItem("highScores", JSON.stringify(highScores));
@@ -260,5 +237,12 @@ startButton.addEventListener("click", function () {
     main.innerHTML = "";
     // correctly spaces new divs
     main.style = "margin-top:-4em;"
+    startQuiz();
+});
+
+// this controls the View Highscores button
+startButton.addEventListener("click", function () {
+    main.innerHTML = "";
+    
     startQuiz();
 });
