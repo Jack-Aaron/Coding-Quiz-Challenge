@@ -220,6 +220,7 @@ function highScore(score) {
         initials.addEventListener("input", function () {
             // when they type three letters...
             var initialsInput = initials.value;
+            initialsInput = initialsInput.toUpperCase();
             // put the initials along with the score into array for storage
             if (initialsInput.length === 3) {
                 score = [initialsInput, score];
