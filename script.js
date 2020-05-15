@@ -242,5 +242,12 @@ startButton.addEventListener("click", function () {
 
 // this controls the View Highscores button
 viewHighScores.addEventListener("click", function () {
- console.log(localStorage.getItem("highScores"));
+    let highScores = JSON.parse(localStorage.getItem("highScores"));
+    var list = document.createElement("ol");
+    document.body.children[3].children[0].children[0].children[1].appendChild(list);
+    for (let i = 0; i < highScores.length; i++) {
+        var highScoreItem = document.createElement("li");
+        highScoreItem.textContent = `${highScores[i][0]} ${highScores[i][1]}`;
+        list.appendChild(highScoreItem);
+    }
 });

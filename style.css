@@ -103,6 +103,7 @@ button.quiz:active {
 
 li {
     padding-bottom: 1.5em;
+    list-style-type: upper-roman;
 }
 
 footer {
