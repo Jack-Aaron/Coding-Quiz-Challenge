@@ -6,6 +6,7 @@ var seconds = document.getElementById("seconds");
 var header = document.querySelector("header");
 var viewHighScores = document.getElementById("highscores");
 var modalBody = document.getElementsByClassName("modal-body");
+var clearHighScores = document.getElementsByClassName("btn-primary");
 
 // put this var here to test something, but probably can delete it after?
 var counter = 0;
@@ -255,3 +256,7 @@ viewHighScores.addEventListener("click", function () {
         list.appendChild(highScoreItem);
     }
 });
+
+function resetScores() {
+localStorage.removeItem("highScores");
+}
