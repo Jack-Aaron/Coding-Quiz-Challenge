@@ -104,8 +104,9 @@ function askQuestion(questionNumber) {
         document.body.children[1].children[0].children[0].children[1].appendChild(li);
         // find a "button"
         var answerButton = document.createElement("button")
-        // ID the button and give style
+        // ID the button, add quiz class, give style
         answerButton.setAttribute("id", "answer");
+        answerButton.setAttribute("class", "quiz");
         answerButton.setAttribute("style", "padding:1em;width:100%");
         // put the Answer text in the button
         thisAnswer = answers[questionNumber][i];
