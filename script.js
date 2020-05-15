@@ -5,6 +5,7 @@ var main = document.querySelector("main");
 var seconds = document.getElementById("seconds");
 var header = document.querySelector("header");
 var viewHighScores = document.getElementById("highscores");
+var modalBody = document.getElementsByClassName("modal-body");
 
 // put this var here to test something, but probably can delete it after?
 var counter = 0;
@@ -242,8 +243,10 @@ startButton.addEventListener("click", function () {
 
 // this controls the View Highscores button
 viewHighScores.addEventListener("click", function () {
+    
     let highScores = JSON.parse(localStorage.getItem("highScores"));
     var list = document.createElement("ol");
+    modalBody[0].innerText = "";
     document.body.children[3].children[0].children[0].children[1].appendChild(list);
     for (let i = 0; i < highScores.length; i++) {
         var highScoreItem = document.createElement("li");
