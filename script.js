@@ -252,6 +252,7 @@ viewHighScores.addEventListener("click", function () {
     document.body.children[3].children[0].children[0].children[1].appendChild(list);
     for (let i = 0; i < highScores.length; i++) {
         var highScoreItem = document.createElement("li");
+        highScoreItem.setAttribute("class", "highScore");
         highScoreItem.textContent = `${highScores[i][0]} ${highScores[i][1]}`;
         list.appendChild(highScoreItem);
     }

@@ -101,7 +101,7 @@ button.quiz:active {
     letter-spacing: 0.05em;
 }
 
-li {
+li.highScore {
     padding-bottom: 1.5em;
     list-style-type: upper-roman;
 }
