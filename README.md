@@ -22,6 +22,3 @@ This coding quiz stylistically emulates the [Git BASH](https://gitforwindows.org
 * Put real content in the latter questions
 * Have the timer remain at the count of when the quiz was finished instead of resetting to zero
 * Fix positining issues with Popper.js
-
-### Meet The Team
-* [Jonathan Alpart](https://github.com/Jack-Aaron/): Front-end
