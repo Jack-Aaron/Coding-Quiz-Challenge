@@ -24,4 +24,4 @@ This coding quiz stylistically emulates the [Git BASH](https://gitforwindows.org
 * Fix positining issues with Popper.js
 
 ### Meet The Team
-* [Jonathan Alpart](https://github.com/Jack-Aaron/)
+* [Jonathan Alpart](https://github.com/Jack-Aaron/): Front-end
