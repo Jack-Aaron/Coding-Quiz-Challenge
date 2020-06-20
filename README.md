@@ -1,19 +1,27 @@
-# Coding-Quiz-Challenge
+# Coding Quiz Challenge
 
-This coding quiz emulates the Git Bash system.
+### Overview
 
-It will ask the player 10 questions about coding.
+This coding quiz stylistically emulates the [Git BASH](https://gitforwindows.org/) command line application. It will ask the player 10 questions about coding. After you answer a question, it will load the next question. If you answer a question correctly or incorrectly, it will tell you the result. If your answer a question correctly, your Score increases by 1. If you answer a question incorrectly, you lose 5 Seconds from the Timer. Your Score will equal the # of Questions answered correctly plus remaining time in Seconds. Your Score will be displayed at the end. If you achieve a high score, you may enter your initials, which are displayed in order of high score for as long as they are kept in Local Storage.
 
-After you answer a question, it will load the next question.
+![Demo of Coding Quiz Challenge](https://github.com/Jack-Aaron/Coding-Quiz-Challenge/blob/master/demo.gif?raw=true)
 
-If you answer a question correctly or incorrectly, it will tell you the result.
+### Technologies Used
+* HTML/CSS
+* Responsive Web Design Media Queries
+* Javascript ES5
+* Bootstrap
+* [Popper.js](https://popper.js.org/)
+* jQuery
+* JSON
 
-If your answer a question correctly, your Score increases by 1.
+### Links
+* [Application](https://jack-aaron.github.io/Coding-Quiz-Challenge/)
 
-If you answer a question incorrectly, you lose 5 Seconds from the Timer.
+### Future Improvements
+* Put real content in the latter questions
+* Have the timer remain at the count of when the quiz was finished instead of resetting to zero
+* Fix positining issues with Popper.js
 
-Your Score will equal the # of Questions answered correctly plus remaining time in Seconds.
-
-Your Score will be displayed at the end.
-
-I could not complete the rest of the objectives in time.
+### Meet The Team
+* [Jonathan Alpart](https://github.com/Jack-Aaron/)
