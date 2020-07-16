@@ -6,6 +6,14 @@ This coding quiz stylistically emulates the [Git BASH](https://gitforwindows.org
 
 ![Demo of Coding Quiz Challenge](demo.gif?raw=true)
 
+### Development Process
+
+As this project was to be created entirely using dynamic JavaScript, it was a challenge getting everything to look right especially across different devices. It took a lot of experimentation to figure out combinations of HTML, CSS and logic to be responsive in relation to the content length of the question and answer pairs.
+
+Wanting to pay homage to the GitBash color scheme, I took screenshots and used dropper tools to pinpoint the exact colors to use in the application's theme.
+
+Keeping track of scope across different functions of the application was important to finishing this project.
+
 ### Technologies Used
 * HTML/CSS
 * Responsive Web Design Media Queries
